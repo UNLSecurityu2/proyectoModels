@@ -1,0 +1,150 @@
+//prueba de creacion de usuario ADMIN
+
+
+GET https://computacion.unl.edu.ec/winpiback/getPredictionResult/9b210606-27ed-4c81-beb1-0e6330cb484a
+Content-Type: application/json
+Authorization: sk-5c92c5d1c6a1003ce5a7febdfd2b8c340b703749b5a08dcea3cc1d17dbd88520.8f21b314901864ce5391b061203cfa17
+
+{
+        "date-start": "2018-04-23 00:00",
+        "date-end": "2018-04-24 00:00",
+        "interval": 360 
+}
+
+###
+//prueba de creacion de usuario NORMAL
+
+
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "asistente",
+    "cedula": 1105053969,
+    "fechaNacimiento": "2024-01-15T16:30:00.000Z",
+    "direccion": "Yaguarhollywood",
+    "telefono": 9999105997,
+    "email": "asistente@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "asistente"
+
+}
+
+###
+//traer todos los usuarios
+
+GET http://localhost:5000/users
+
+###
+//solo un usuario
+GET http://localhost:5000/users/06c89a8a-c9c2-4252-ad2c-946aefadcde6
+
+###
+//actualizar usuario
+PATCH http://localhost:5000/users/06c89a8a-c9c2-4252-ad2c-946aefadcde6
+Content-Type: application/json
+
+{
+    "name": "camotito ACTUALIZADO",
+    "email": "camotito@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "admin"
+}
+
+
+###
+//delete usuario
+DELETE http://localhost:5000/users/cfd18ea7-d8ba-4e5e-82bb-1cc420c63868
+
+###
+//prueba de login como usuario
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "asistente@gmail.com",
+    "password": "123456"
+}
+
+###
+//prueba de login como admin
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin1@gmail.com",
+    "password": "1234567"
+}
+
+
+###
+//sesion usuario 
+//si paramos el servidor y reiniciamos el usuario se desloguea automaticamente
+// por lo que es recomendable guardar la sesion en la bdd 
+GET http://localhost:5000/me
+
+
+###
+//logout usuario
+
+DELETE http://localhost:5000/logout
+
+
+//PRUEBAS DE EVENTOOOOOOOOOOS
+###
+//traer todos los EVENTOS
+
+GET http://localhost:5000/events
+
+###
+//traer solo un evento objetivo 
+
+GET http://localhost:5000/events/c489dcf4-73b2-4d46-9045-99f56e593196
+
+###
+//POST crear un evento
+
+POST http://localhost:5000/events
+Content-Type: application/json
+
+{
+    "fecha": "2024-01-16T16:30:00.000Z",
+    "ubicacion": "loja-catamayo",
+    "capacidad": 25,
+    "justificacion": "estoy enfermo"
+}
+
+
+###
+//PATCH actualizar un evento
+
+PATCH http://localhost:5000/events/2
+Content-Type: application/json
+
+{
+    "fecha": "2025-01-15T18:30:00.000Z",
+    "ubicacion": "Quito",
+    "capacidad": 40,
+    "estado": "activo"
+}
+
+
+###
+//DELETE  un evento
+DELETE http://localhost:5000/events/c765dbd3-c4fb-4a0e-8685-2e5712cfb8c6
+
+
+###
+//POST crear un team
+
+POST http://localhost:5000/teams
+Content-Type: application/json
+
+{
+    "name": "quito",
+    "ciudadRepresentante": "LOJA"
+}

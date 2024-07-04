@@ -1,0 +1,6 @@
+projectKey=laboratorio9PostCorrecion1
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=laboratorio9PostCorrecion1
+ceTaskId=265fdbd2-019e-44d6-a713-c8ef28e41225
+ceTaskUrl=http://localhost:9000/api/ce/task?id=265fdbd2-019e-44d6-a713-c8ef28e41225
