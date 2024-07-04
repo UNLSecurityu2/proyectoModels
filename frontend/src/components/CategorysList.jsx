@@ -45,7 +45,7 @@ const CategorysList = () => {
                         <td>{category.limite}</td>
                         {user && user.role === "admin" && 
                         <td>
-                            <Link to={`/categorys/edit/${category.uuid}`} className="button is-small is-info">Editar</Link>
+                            <Link to={`/categorys/edit/${category.uuid}`} className="button is-small is-info">Editar dale</Link>
                             <button onClick={()=> deleteCategorys(category.uuid)} className="button is-small is-danger">Eliminar</button>
                         </td>
                         }
